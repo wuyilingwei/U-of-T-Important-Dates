@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UTM Important Dates · Calendar Subscription</title>
+  <meta name="description" content="Subscribe to University of Toronto Mississauga important academic dates as a calendar feed. Auto-updated daily. Student project — not an official U of T product." />
+  <style>
+    :root {
+      --blue:   #002a5c;
+      --gold:   #e8a420;
+      --light:  #f5f7fa;
+      --border: #dde2ea;
+      --text:   #1a1a2e;
+      --muted:  #5a6175;
+      --radius: 10px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                   Helvetica, Arial, sans-serif;
+      background: var(--light);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Header ─────────────────────────────────────────────────────────── */
+    header {
+      background: var(--blue);
+      color: #fff;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    header .badge {
+      background: var(--gold);
+      color: var(--blue);
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .2em .55em;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    header h1 { font-size: 1.2rem; font-weight: 600; }
+
+    /* ── Main ────────────────────────────────────────────────────────────── */
+    main {
+      flex: 1;
+      max-width: 720px;
+      width: 100%;
+      margin: 2.5rem auto;
+      padding: 0 1.25rem;
+    }
+
+    /* ── Disclaimer ──────────────────────────────────────────────────────── */
+    .disclaimer {
+      border-left: 4px solid var(--gold);
+      background: #fff8ec;
+      padding: .75rem 1rem;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: .875rem;
+      color: #6b4c00;
+      margin-bottom: 2rem;
+    }
+    .disclaimer strong { color: #5a3e00; }
+
+    /* ── Cards ───────────────────────────────────────────────────────────── */
+    .card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .card h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--blue);
+      margin-bottom: .75rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .card p, .card li {
+      font-size: .9rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .card ul { padding-left: 1.2rem; margin-top: .5rem; }
+    .card ul li { margin-bottom: .3rem; }
+
+    /* ── Action row ──────────────────────────────────────────────────────── */
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      margin-top: 1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      padding: .6rem 1.1rem;
+      border-radius: 6px;
+      font-size: .875rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: opacity .15s;
+      border: none;
+    }
+    .btn:hover { opacity: .85; }
+    .btn-primary { background: var(--blue); color: #fff; }
+    .btn-outline  {
+      background: transparent;
+      color: var(--blue);
+      border: 1.5px solid var(--blue);
+    }
+    .btn-copy {
+      background: var(--gold);
+      color: var(--blue);
+    }
+
+    /* ── Copy URL box ────────────────────────────────────────────────────── */
+    .url-row {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      margin-top: .75rem;
+      flex-wrap: wrap;
+    }
+    .url-box {
+      flex: 1;
+      min-width: 0;
+      font-family: "SF Mono", "Fira Code", Consolas, monospace;
+      font-size: .8rem;
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: .45rem .7rem;
+      color: var(--text);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      user-select: all;
+    }
+    .toast {
+      display: none;
+      font-size: .8rem;
+      color: green;
+      font-weight: 600;
+    }
+
+    /* ── Footer ──────────────────────────────────────────────────────────── */
+    footer {
+      text-align: center;
+      font-size: .78rem;
+      color: var(--muted);
+      padding: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--blue); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>UTM Important Dates</h1>
+    <p style="font-size:.8rem;opacity:.75;margin-top:.1rem">
+      University of Toronto Mississauga &mdash; Registrar&rsquo;s Calendar Feed
+    </p>
+  </div>
+  <span class="badge">Student Project</span>
+</header>
+
+<main>
+
+  <div class="disclaimer">
+    <strong>⚠ Unofficial Tool.</strong>
+    This calendar is maintained by a student and is <em>not</em> affiliated with
+    or endorsed by the University of Toronto or UTM.
+    Always verify important dates at the
+    <a href="https://www.utm.utoronto.ca/registrar/dates" target="_blank"
+       rel="noopener noreferrer">official UTM Registrar page</a>.
+  </div>
+
+  <!-- Dynamic subscription -->
+  <div class="card">
+    <h2>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2" stroke-linecap="round"
+           stroke-linejoin="round" aria-hidden="true">
+        <path d="M3 11l19-9-9 19-2-8-8-2z"/>
+      </svg>
+      Subscribe (auto-updates daily)
+    </h2>
+    <p>
+      Add the webcal feed to your calendar app so it updates automatically
+      whenever the UTM Registrar publishes new dates.
+    </p>
+
+    <div class="actions">
+      <a class="btn btn-primary"
+         href="webcal://wuyilingwei.github.io/U-of-T-Important-Dates/utm.ics">
+        Add to Calendar
+      </a>
+      <a class="btn btn-outline"
+         href="https://calendar.google.com/calendar/r?cid=webcal%3A%2F%2Fwuyilingwei.github.io%2FU-of-T-Important-Dates%2Futm.ics"
+         target="_blank" rel="noopener noreferrer">
+        + Google Calendar
+      </a>
+    </div>
+
+    <div class="url-row">
+      <span class="url-box" id="webcalUrl"
+            >webcal://wuyilingwei.github.io/U-of-T-Important-Dates/utm.ics</span>
+      <button class="btn btn-copy" onclick="copyWebcal()">Copy URL</button>
+      <span class="toast" id="copyToast">Copied!</span>
+    </div>
+  </div>
+
+  <!-- Static download -->
+  <div class="card">
+    <h2>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2" stroke-linecap="round"
+           stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="7 10 12 15 17 10"/>
+        <line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>
+      Download Static Snapshot
+    </h2>
+    <p>
+      Download the current <code>.ics</code> file and import it manually.
+      Note: a downloaded file won&rsquo;t update automatically.
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary"
+         href="utm.ics" download="utm_important_dates.ics">
+        Download utm.ics
+      </a>
+    </div>
+  </div>
+
+  <!-- How it works -->
+  <div class="card">
+    <h2>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2" stroke-linecap="round"
+           stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="8" x2="12" y2="12"/>
+        <line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+      How it works
+    </h2>
+    <ul>
+      <li>A GitHub Actions job runs once per day at 08:00 UTC.</li>
+      <li>It renders the UTM Registrar dates page with a headless browser,
+          extracts all academic events, and converts them into all-day
+          calendar entries.</li>
+      <li>The resulting <code>utm.ics</code> file is committed to this
+          repository and served via GitHub Pages.</li>
+      <li>Calendar apps that support webcal / CalDAV will poll the URL
+          periodically and pull in any changes.</li>
+    </ul>
+
+    <p style="margin-top:.75rem;">
+      <strong>Supported campuses:</strong> UTM (more coming soon)
+    </p>
+    <p style="margin-top:.35rem;">
+      <strong>User-Agent:</strong>
+      <code>U-of-T-Calendar-Bot/1.0
+      (Contact: sy.lei@mail.utoronto.ca; Student Project)</code>
+    </p>
+  </div>
+
+</main>
+
+<footer>
+  <p>
+    Data sourced from
+    <a href="https://www.utm.utoronto.ca/registrar/dates"
+       target="_blank" rel="noopener noreferrer">
+      utm.utoronto.ca/registrar/dates
+    </a>
+    &bull;
+    <a href="https://github.com/wuyilingwei/U-of-T-Important-Dates"
+       target="_blank" rel="noopener noreferrer">
+      View on GitHub
+    </a>
+    &bull; Not affiliated with the University of Toronto
+  </p>
+</footer>
+
+<script>
+  function copyWebcal() {
+    const url = document.getElementById('webcalUrl').textContent.trim();
+    navigator.clipboard.writeText(url).then(() => {
+      const toast = document.getElementById('copyToast');
+      toast.style.display = 'inline';
+      setTimeout(() => { toast.style.display = 'none'; }, 2000);
+    }).catch(() => {
+      // Fallback for older browsers
+      const el = document.getElementById('webcalUrl');
+      const range = document.createRange();
+      range.selectNodeContents(el);
+      const sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+    });
+  }
+</script>
+
+</body>
+</html>
