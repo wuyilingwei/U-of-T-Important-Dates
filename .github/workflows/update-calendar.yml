@@ -1,4 +1,4 @@
-name: Update UTM Calendar
+name: Update All Campus Calendars
 
 on:
   schedule:
@@ -31,17 +31,24 @@ jobs:
       - name: Install Playwright Chromium (with OS dependencies)
         run: playwright install chromium --with-deps
 
-      - name: Run scraper
+      - name: Run UTM scraper
         run: python scripts/scrape_utm.py
 
-      - name: Commit and push updated ICS (if changed)
+      - name: Run UTSC scraper
+        run: python scripts/scrape_utsc.py
+
+      - name: Run ArtsCI scraper
+        run: python scripts/scrape_artsci.py
+
+      - name: Commit and push updated ICS files (if changed)
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/utm.ics
+          git add docs/utm.ics docs/utsc.ics docs/artsci.ics
           if git diff --staged --quiet; then
-            echo "ℹ No changes to commit — calendar is already up to date."
+            echo "ℹ No changes to commit — all calendars are already up to date."
           else
-            git commit -m "chore: update UTM calendar [$(date -u +%Y-%m-%d)]"
+            git commit -m "chore: update all campus calendars [$(date -u +%Y-%m-%d)]"
             git push
           fi
+

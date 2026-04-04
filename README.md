@@ -1,42 +1,41 @@
-# U of T Important Dates — Calendar Feed
+# U of T Important Dates - Calendar Feed
 
-> **⚠ NOT AN OFFICIAL UNIVERSITY PRODUCT.**  
-> This is an independent student convenience tool, not affiliated with or endorsed by the University of Toronto or UTM.  
-> Always verify important dates at the **[official UTM Registrar page](https://www.utm.utoronto.ca/registrar/dates)**.
+> **NOT AN OFFICIAL UNIVERSITY PRODUCT.**
+> This is an independent student convenience tool, not affiliated with or endorsed by the University of Toronto.
+> Always verify important dates at the official registrar pages for your campus.
 
-Automatically-updated `.ics` calendar file for the **University of Toronto Mississauga** Registrar's important academic dates.  
-The calendar is rebuilt once per day by GitHub Actions and served as a static file via GitHub Pages.
+Automatically-updated .ics calendar files for three University of Toronto campuses.
+The calendars are rebuilt once per day by GitHub Actions and served as static files via GitHub Pages.
 
 ---
 
-## Subscribe — stays current automatically
+## Campuses
 
-Add the webcal feed to your calendar app. When the UTM Registrar publishes new dates, your calendar will pick them up on its next sync.
+| Campus | Webcal (auto-updates) | HTTPS URL | Official Source |
+|---|---|---|---|
+| **UTM** | webcal://wuyilingwei.github.io/U-of-T-Important-Dates/utm.ics | [utm.ics](https://wuyilingwei.github.io/U-of-T-Important-Dates/utm.ics) | [UTM Registrar](https://www.utm.utoronto.ca/registrar/dates) |
+| **UTSC** | webcal://wuyilingwei.github.io/U-of-T-Important-Dates/utsc.ics | [utsc.ics](https://wuyilingwei.github.io/U-of-T-Important-Dates/utsc.ics) | [UTSC Registrar](https://www.utsc.utoronto.ca/registrar/academic-dates) |
+| **ArtsCI** | webcal://wuyilingwei.github.io/U-of-T-Important-Dates/artsci.ics | [artsci.ics](https://wuyilingwei.github.io/U-of-T-Important-Dates/artsci.ics) | [ArtsCI Dates](https://www.artsci.utoronto.ca/current/dates-deadlines/academic-dates) |
 
-| Calendar App | Action |
+---
+
+## Subscribe - stays current automatically
+
+Add the webcal feed to your calendar app. Your calendar will pick up new dates on its next sync.
+
+| Calendar App | Steps |
 |---|---|
-| Apple Calendar / iOS | Click: **[webcal://wuyilingwei.github.io/U-of-T-Important-Dates/utm.ics](webcal://wuyilingwei.github.io/U-of-T-Important-Dates/utm.ics)** |
-| Google Calendar | [Click to add »](https://calendar.google.com/calendar/r?cid=webcal%3A%2F%2Fwuyilingwei.github.io%2FU-of-T-Important-Dates%2Futm.ics) |
-| Outlook (desktop) | File → Open & Export → Import/Export → Import an iCalendar file → paste the https:// URL |
-| Thunderbird | New Calendar → On the Network → paste the webcal:// URL |
-
-**webcal URL:**
-```
-webcal://wuyilingwei.github.io/U-of-T-Important-Dates/utm.ics
-```
-
-**https URL (for apps that prefer https):**
-```
-https://wuyilingwei.github.io/U-of-T-Important-Dates/utm.ics
-```
+| Apple Calendar / iOS | Click a webcal:// link above |
+| Google Calendar | Use the Add to Calendar button on the [project page](https://wuyilingwei.github.io/U-of-T-Important-Dates/) |
+| Outlook (desktop) | File > Open and Export > Import/Export > Import iCalendar > paste the webcal:// URL |
+| Thunderbird | New Calendar > On the Network > paste the webcal:// URL |
 
 ---
 
-## Download — static one-time import
+## Download - static one-time import
 
-[⬇ Download utm.ics](https://wuyilingwei.github.io/U-of-T-Important-Dates/utm.ics)
-
-Import this into any calendar app. The file will **not** update automatically after download.
+Download any .ics file from the HTTPS URLs above and import into any calendar app.
+The file will **not** update automatically after download.
 
 ---
 
@@ -50,42 +49,31 @@ Import this into any calendar app. The file will **not** update automatically af
 
 | Item | Value |
 |---|---|
-| Data source | <https://www.utm.utoronto.ca/registrar/dates> |
 | Update schedule | Daily at 08:00 UTC (GitHub Actions cron) |
-| Rendering method | Playwright headless Chromium — dates are loaded by an Elfsight JS widget and are absent from raw HTML |
-| Event type | All-day `VEVENT` entries (RFC 5545) |
-| User-Agent | `U-of-T-Calendar-Bot/1.0 (Contact: sy.lei@mail.utoronto.ca; Student Project)` |
-| Output | `docs/utm.ics` — served by GitHub Pages |
-| Supported campuses | UTM (more planned) |
+| Event type | All-day VEVENT entries (RFC 5545) |
+| User-Agent | U-of-T-Calendar-Bot/1.0 (Contact: sy.lei@mail.utoronto.ca; Student Project) |
 
-### Why Playwright?
+### Per-campus scraping method
 
-The UTM registrar dates page embeds an **Elfsight** third-party calendar widget that renders content entirely client-side via JavaScript. A plain HTTP request returns only the page shell without any date entries. Playwright renders the full page, waits for the widget to hydrate, then extracts the text.
+| Campus | Method | Reason |
+|---|---|---|
+| UTM | Playwright headless Chromium | Dates loaded by an Elfsight JS widget - absent from raw HTML |
+| UTSC | requests + BeautifulSoup (static) | Dates are in static HTML tables on registrar sub-pages |
+| ArtsCI | Playwright + BeautifulSoup | Dates loaded via AJAX when Bootstrap accordion panels are clicked |
 
 ---
 
 ## Running locally
 
-```bash
-# Install Python dependencies
+\\ash
 pip install -r scripts/requirements.txt
-
-# Install the headless browser
 playwright install chromium --with-deps
-
-# Generate docs/utm.ics
 python scripts/scrape_utm.py
-
-# Optional flags
-python scripts/scrape_utm.py --verbose               # DEBUG logging
-python scripts/scrape_utm.py --debug rendered.html   # save rendered HTML
-python scripts/scrape_utm.py --output /tmp/test.ics  # custom output path
-```
-
+python scripts/scrape_utsc.py
+python scripts/scrape_artsci.py
+\
 ---
 
 ## Disclaimer
 
-This project is **not** affiliated with, sponsored by, or endorsed by the University of Toronto, the University of Toronto Mississauga, or any of their staff or departments.
-
-Data is sourced from the publicly accessible UTM Registrar website for personal convenience. Use at your own risk. The maintainer accepts no responsibility for any errors or omissions in the calendar data.
+This project is **not** affiliated with, sponsored by, or endorsed by the University of Toronto or any of its campuses, staff, or departments.
