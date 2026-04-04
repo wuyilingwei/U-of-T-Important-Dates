@@ -4,14 +4,16 @@
 > This is an independent student convenience tool, not affiliated with or endorsed by the University of Toronto.
 > Always verify important dates at the official registrar pages for your campus.
 
-Automatically-updated .ics calendar files for three University of Toronto campuses.
-The calendars are rebuilt once per day by GitHub Actions and served as static files via GitHub Pages.
-
 ---
 
 ## Project page
 
-** Please visit the [uoftcal.wuyilingwei.com](https://uoftcal.wuyilingwei.com)**
+Please visit the [uoftcal.wuyilingwei.com](https://uoftcal.wuyilingwei.com) for subscription links and more information.
+
+## Automatically Updated Calendars
+
+Automatically-updated .ics calendar files for three University of Toronto campuses.
+The calendars are rebuilt once per day by GitHub Actions and served as static files.
 
 ---
 
