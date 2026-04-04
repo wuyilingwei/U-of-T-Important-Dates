@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>U of T Important Dates  Calendar Subscription</title>
-  <meta name="description" content="Subscribe to University of Toronto important academic dates as a calendar feed. Covers UTM, UTSC, and ArtsCI (St. George). Auto-updated daily. Student project  not an official U of T product." />
+  <meta name="description" content="Subscribe to University of Toronto important academic dates as a calendar feed. Covers UTM, UTSC, and ArtsCI (St. George). Auto-updated daily." />
   <style>
     :root {
       --blue:   #002a5c;
-      --gold:   #e8a420;
+      --grey:   #D0D5E1;
       --light:  #f5f7fa;
       --border: #dde2ea;
       --text:   #1a1a2e;
@@ -26,14 +26,14 @@
       display: flex; align-items: center; gap: 1rem;
     }
     header .badge {
-      background: var(--gold); color: var(--blue); font-size: .7rem; font-weight: 700;
+      background: var(--grey); color: var(--blue); font-size: .7rem; font-weight: 700;
       letter-spacing: .06em; text-transform: uppercase; padding: .2em .55em;
       border-radius: 4px; white-space: nowrap;
     }
     header h1 { font-size: 1.2rem; font-weight: 600; }
     main { flex: 1; max-width: 780px; width: 100%; margin: 2.5rem auto; padding: 0 1.25rem; }
     .disclaimer {
-      border-left: 4px solid var(--gold); background: #fff8ec; padding: .75rem 1rem;
+      border-left: 4px solid var(--grey); background: #fff8ec; padding: .75rem 1rem;
       border-radius: 0 var(--radius) var(--radius) 0; font-size: .875rem;
       color: #6b4c00; margin-bottom: 2rem;
     }
@@ -70,7 +70,7 @@
     .btn:hover { opacity: .85; }
     .btn-primary { background: var(--blue); color: #fff; }
     .btn-outline { background: transparent; color: var(--blue); border: 1.5px solid var(--blue); }
-    .btn-copy { background: var(--gold); color: var(--blue); }
+    .btn-copy { background: var(--grey); color: var(--blue); }
     .url-row { display: flex; align-items: center; gap: .5rem; margin-top: .65rem; flex-wrap: wrap; }
     .url-box {
       flex: 1; min-width: 0; font-family: "SF Mono","Fira Code",Consolas,monospace;
@@ -90,7 +90,6 @@
     <h1>U of T Important Dates</h1>
     <p style="font-size:.8rem;opacity:.75;margin-top:.1rem">University of Toronto &mdash; Academic Calendar Feeds</p>
   </div>
-  <span class="badge">Student Project</span>
 </header>
 <main>
   <div class="disclaimer">
@@ -200,9 +199,6 @@
       <li>All events are converted to all-day ICS entries and committed to this repository.</li>
       <li>Calendar apps that support webcal/CalDAV poll the URL and pull in any changes.</li>
     </ul>
-    <p style="margin-top:.65rem;">
-      <strong>User-Agent:</strong> <code>U-of-T-Calendar-Bot/1.0 (Contact: sy.lei@mail.utoronto.ca; Student Project)</code>
-    </p>
   </div>
 </main>
 <footer>
