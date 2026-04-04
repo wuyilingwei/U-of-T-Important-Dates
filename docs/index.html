@@ -104,7 +104,7 @@
   </div>
 
   <!-- ArtsCI / UTSG -->
-  <div class="campus-section">
+  <div class="campus-section" data-ics="artsci.ics">
     <div class="campus-header">
       <h2>Faculty of Arts &amp; Science (St. George)</h2><span class="campus-tag">UTSG</span>
     </div>
@@ -134,7 +134,7 @@
   </div>
 
   <!-- UTM -->
-  <div class="campus-section">
+  <div class="campus-section" data-ics="utm.ics">
     <div class="campus-header">
       <h2>University of Toronto Mississauga</h2><span class="campus-tag">UTM</span>
     </div>
@@ -164,7 +164,7 @@
   </div>
 
   <!-- UTSC -->
-  <div class="campus-section">
+  <div class="campus-section" data-ics="utsc.ics">
     <div class="campus-header">
       <h2>University of Toronto Scarborough</h2><span class="campus-tag">UTSC</span>
     </div>
@@ -216,6 +216,48 @@
   </p>
 </footer>
 <script>
+  // ── URL auto-detection ──────────────────────────────────────────────────────
+  // Builds webcal/https URLs from the current origin so the page works on any
+  // host (GitHub Pages, Cloudflare Pages, custom domain, localhost, etc.).
+  // Falls back to the hardcoded GitHub Pages URL if the environment looks odd.
+  const FALLBACK_BASE = 'https://wuyilingwei.github.io/U-of-T-Important-Dates/';
+
+  function resolveBase() {
+    try {
+      // Strip filename (if any) to get the directory URL
+      const base = window.location.origin +
+        window.location.pathname.replace(/\/[^/]*$/, '/');
+      // Reject non-http(s) schemes (file://, about:, etc.) → use fallback
+      if (!/^https?:\/\//.test(base)) return FALLBACK_BASE;
+      return base.endsWith('/') ? base : base + '/';
+    } catch (e) {
+      return FALLBACK_BASE;
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const base = resolveBase();
+    document.querySelectorAll('.campus-section[data-ics]').forEach(section => {
+      const file      = section.dataset.ics;
+      const httpsUrl  = base + file;
+      const webcalUrl = httpsUrl.replace(/^https?:\/\//, 'webcal://');
+      const gcalUrl   = 'https://calendar.google.com/calendar/r?cid=' +
+                        encodeURIComponent(webcalUrl);
+
+      const subscribeCard = section.querySelector('.cards-row .card');
+      if (!subscribeCard) return;
+
+      const addBtn  = subscribeCard.querySelector('a.btn-primary');
+      const gcalBtn = subscribeCard.querySelector('a.btn-outline');
+      const urlBox  = subscribeCard.querySelector('.url-box');
+
+      if (addBtn)  addBtn.href         = webcalUrl;
+      if (gcalBtn) gcalBtn.href        = gcalUrl;
+      if (urlBox)  urlBox.textContent  = webcalUrl;
+    });
+  });
+
+  // ── Copy-to-clipboard ────────────────────────────────────────────────────────
   function copyUrl(boxId, toastId) {
     const url = document.getElementById(boxId).textContent.trim();
     navigator.clipboard.writeText(url).then(() => showToast(toastId)).catch(() => {
