@@ -349,6 +349,9 @@ def generate_ics(events: list[dict], output_path: Path) -> None:
             "Always verify at: " + UTSC_HUB_URL
         ),
     )
+    # Suggest clients refresh once per day (RFC 7986 + Apple compat)
+    cal.add("refresh-interval", timedelta(days=1))
+    cal.add("x-published-ttl", "P1D")
 
     now_utc = datetime.now(pytz.utc)
 
