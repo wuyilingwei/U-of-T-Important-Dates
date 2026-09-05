@@ -23,5 +23,8 @@
   },
   "compatibility_flags": [
     "nodejs_compat"
+  ],
+  "routes": [
+    { "pattern": "uoft.voidcarve.com", "custom_domain": true }
   ]
 }
