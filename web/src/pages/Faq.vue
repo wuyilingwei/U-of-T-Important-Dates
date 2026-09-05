@@ -14,7 +14,7 @@ const sections = [
       },
       {
         q: 'Who built this and why?',
-        a: `<p>Built by a UofT student. The original motivation was accessibility: important academic dates are buried across multiple registrar pages with no machine-readable export, making them hard to track — especially for students who rely on calendar reminders for time management and planning. The source code is fully open on <a href="https://github.com/wuyilingwei/UofT-Tools" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>`,
+        a: `<p>Built by a UofT student. The original motivation was accessibility: important academic dates are buried across multiple registrar pages with no machine-readable export, making them hard to track — especially for students who rely on calendar reminders for time management and planning. The source code is fully open on <a href="https://github.com/lsy-404/UofT-Tools" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>`,
       },
       {
         q: 'Is this an accessibility tool?',
@@ -35,7 +35,7 @@ const sections = [
       },
       {
         q: 'What if a date in the calendar is wrong?',
-        a: `<p>The dates are scraped directly from official registrar pages — if the registrar page is correct, the calendar should be too. If you spot a discrepancy, please <a href="https://github.com/wuyilingwei/UofT-Tools/issues" target="_blank" rel="noopener noreferrer">open an issue on GitHub</a> with a link to the official source. In the meantime, always trust the official page over this tool.</p>`,
+        a: `<p>The dates are scraped directly from official registrar pages — if the registrar page is correct, the calendar should be too. If you spot a discrepancy, please <a href="https://github.com/lsy-404/UofT-Tools/issues" target="_blank" rel="noopener noreferrer">open an issue on GitHub</a> with a link to the official source. In the meantime, always trust the official page over this tool.</p>`,
       },
     ],
   },
@@ -46,7 +46,7 @@ const sections = [
         q: 'Why is the site on a personal domain?',
         a: `<p>The project is currently hosted under my personal domain (<code>uoft.voidcarve.com</code>) because I haven&rsquo;t yet found a more appropriate home for it. Ideally, a project like this would live under a student-organisation or community domain that better reflects its purpose.</p>
         <div class="callout">
-          <strong>&#128233; Looking for a collaboration.</strong> If you represent a UofT student organisation, CS club, or student society that has a suitable domain and would be open to hosting or co-maintaining this project, I&rsquo;d love to hear from you. Please reach out via <a href="https://github.com/wuyilingwei/UofT-Tools/issues" target="_blank" rel="noopener noreferrer">GitHub</a> or email at <a href="mailto:sy.lei@mail.utoronto.ca">sy.lei@mail.utoronto.ca</a>.
+          <strong>&#128233; Looking for a collaboration.</strong> If you represent a UofT student organisation, CS club, or student society that has a suitable domain and would be open to hosting or co-maintaining this project, I&rsquo;d love to hear from you. Please reach out via <a href="https://github.com/lsy-404/UofT-Tools/issues" target="_blank" rel="noopener noreferrer">GitHub</a> or email at <a href="mailto:sy.lei@mail.utoronto.ca">sy.lei@mail.utoronto.ca</a>.
         </div>`,
       },
       {
@@ -60,11 +60,11 @@ const sections = [
     items: [
       {
         q: 'How do I report a bug or request a feature?',
-        a: `<p>Open an issue on the <a href="https://github.com/wuyilingwei/UofT-Tools/issues" target="_blank" rel="noopener noreferrer">GitHub Issues</a> page. Please include as much detail as possible — what you expected to happen, what actually happened, and a link to any relevant official source if the issue is about incorrect dates.</p>`,
+        a: `<p>Open an issue on the <a href="https://github.com/lsy-404/UofT-Tools/issues" target="_blank" rel="noopener noreferrer">GitHub Issues</a> page. Please include as much detail as possible — what you expected to happen, what actually happened, and a link to any relevant official source if the issue is about incorrect dates.</p>`,
       },
       {
         q: 'Can I contribute code?',
-        a: `<p>Absolutely. Pull requests are welcome. The repository is at <a href="https://github.com/wuyilingwei/UofT-Tools" target="_blank" rel="noopener noreferrer">github.com/wuyilingwei/UofT-Tools</a>. Whether it&rsquo;s fixing a scraper, improving the UI, or adding a brand-new tool — contributions of all sizes are appreciated.</p>`,
+        a: `<p>Absolutely. Pull requests are welcome. The repository is at <a href="https://github.com/lsy-404/UofT-Tools" target="_blank" rel="noopener noreferrer">github.com/lsy-404/UofT-Tools</a>. Whether it&rsquo;s fixing a scraper, improving the UI, or adding a brand-new tool — contributions of all sizes are appreciated.</p>`,
       },
     ],
   },

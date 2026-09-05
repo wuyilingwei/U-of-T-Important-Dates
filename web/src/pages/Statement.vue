@@ -31,7 +31,7 @@ const sections = [
 
     <section class="agreement">
       <h2 id="about">0. About the Site</h2>
-      <p>UofT Tools is an independent, open-source project built and maintained by a student to make student life at the University of Toronto easier (for example, academic calendar feeds and a course planner). The source code is publicly available on <a href="https://github.com/wuyilingwei/UofT-Tools" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+      <p>UofT Tools is an independent, open-source project built and maintained by a student to make student life at the University of Toronto easier (for example, academic calendar feeds and a course planner). The source code is publicly available on <a href="https://github.com/lsy-404/UofT-Tools" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
       <p>The Site is <strong>not</strong> affiliated with, endorsed by, or operated by the University of Toronto. The Site has no user accounts; all features are available without signing in.</p>
 
       <h2 id="acceptance">1. Acceptance of Terms</h2>

@@ -52,10 +52,10 @@ This approach allows us to capture dates from dynamic content (widgets, accordio
 The dates come directly from the official registrar pages. If a date appears incorrect:
 1. **Check the official registrar page** to verify
 2. If there's a discrepancy, the official page is authoritative
-3. Report the issue on [GitHub](https://github.com/wuyilingwei/UofT-Tools/issues)
+3. Report the issue on [GitHub](https://github.com/lsy-404/UofT-Tools/issues)
 
 ### Can I see the source code?
-Yes! The entire project is open source on GitHub: [wuyilingwei/UofT-Tools](https://github.com/wuyilingwei/UofT-Tools)
+Yes! The entire project is open source on GitHub: [lsy-404/UofT-Tools](https://github.com/lsy-404/UofT-Tools)
 
 ---
 
@@ -112,7 +112,7 @@ Yes. The tool:
 - Is fully open source (code is auditable)
 
 ### Can I see the logs?
-All scraping logs are public in the GitHub repository's [Actions](https://github.com/wuyilingwei/UofT-Tools/actions) page.
+All scraping logs are public in the GitHub repository's [Actions](https://github.com/lsy-404/UofT-Tools/actions) page.
 
 ---
 
@@ -137,9 +137,9 @@ Check your acceptance/enrollment letter to confirm your campus.
 
 ## Still Have Questions?
 
-- **Report a bug**: [GitHub Issues](https://github.com/wuyilingwei/UofT-Tools/issues)
-- **Request a feature**: [GitHub Discussions](https://github.com/wuyilingwei/UofT-Tools/discussions)
-- **View source code**: [GitHub Repository](https://github.com/wuyilingwei/UofT-Tools)
+- **Report a bug**: [GitHub Issues](https://github.com/lsy-404/UofT-Tools/issues)
+- **Request a feature**: [GitHub Discussions](https://github.com/lsy-404/UofT-Tools/discussions)
+- **View source code**: [GitHub Repository](https://github.com/lsy-404/UofT-Tools)
 
 ---
 

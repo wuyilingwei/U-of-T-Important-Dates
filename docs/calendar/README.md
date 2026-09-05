@@ -54,7 +54,7 @@ Calendar applications that support CalDAV/webcal automatically pull updates from
 
 ## Updates & Changelog
 
-Calendar feeds are synchronized daily. Check the [GitHub repository](https://github.com/wuyilingwei/UofT-Tools) for release notes and updates.
+Calendar feeds are synchronized daily. Check the [GitHub repository](https://github.com/lsy-404/UofT-Tools) for release notes and updates.
 
 ## Disclaimer
 
