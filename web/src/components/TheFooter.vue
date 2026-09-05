@@ -10,7 +10,7 @@
     <span class="sep">&bull;</span>
     <router-link to="/statement">Statement</router-link>
     <span class="sep">&bull;</span>
-    <a href="https://github.com/wuyilingwei/UofT-Tools" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <a href="https://github.com/lsy-404/UofT-Tools" target="_blank" rel="noopener noreferrer">GitHub</a>
   </footer>
 </template>
 
